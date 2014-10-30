@@ -22,7 +22,7 @@ Then add a device to the devices section:
   "id": "led-sw-pwm",
   "name": "LED SW PWM",
   "class": "PiblasterDimmer",
-  "gpio": "18",
+  "gpio": 18,
   "dimlevel": 0
 }
 ```
