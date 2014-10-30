@@ -1,7 +1,9 @@
 pimatic-piblaster
 ================
 
-Support for the pi-blaster.js - Soft PWM.
+Support for the [pi-blaster daemon][pi-blaster].
+
+Install the pi-blaster daemon ([instructions][pi-blaster]).
 
 ### Example config
 
@@ -13,7 +15,7 @@ Add the plugin to the plugin section:
 }
 ```
 
-Then add a sensor for your device to the devices section:
+Then add a device to the devices section:
 
 ```json
 {
