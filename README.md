@@ -1,9 +1,9 @@
 pimatic-piblaster
 ================
 
-Support for the [pi-blaster daemon][pi-blaster].
+Support for the <a href="https://github.com/sarfata/pi-blaster">pi-blaster daemon</a>.
 
-Install the pi-blaster daemon ([instructions][pi-blaster]).
+Install the pi-blaster daemon (<a href="https://github.com/sarfata/pi-blaster">instructions</a>).
 
 ### Example config
 
