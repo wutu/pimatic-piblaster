@@ -1,0 +1,45 @@
+{
+  "name": "pimatic-piblaster",
+  "description": "Module to control pi-blaster.",
+  "author_name": "Marek Kail <reg@kail.cz>",
+  "author_url": "https://github.com/wutu",
+  "npmUser": "wutu",
+  "main": "piblaster",
+  "files": [
+    "piblaster.coffee",
+    "README.md",
+    "piblaster-config-schema.coffee",
+    "device-config-schema.coffee"
+  ],
+  "version": "0.8.0",
+  "homepage": "http://github.com/wutu/pimatic-piblaster",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wutu/pimatic-piblaster.git"
+  },
+  "configSchema": "piblaster-config-schema.coffee",
+  "dependencies": {
+    "pi-blaster.js": "~0.0.2"
+  },
+  "peerDependencies": {
+    "pimatic": "0.8.*"
+  },
+  "engines": {
+    "node": ">0.8.x",
+    "npm": ">1.1.x"
+  },
+  "bugs": {
+    "url": "https://github.com/wutu/pimatic-piblaster/issues"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pimatic",
+    "pi-blaster",
+    "soft PWM",
+    "led pwm"
+  ],
+  "license": "GPL-2.0"
+}
