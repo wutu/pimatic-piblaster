@@ -3,7 +3,7 @@ pimatic-piblaster
 
 Support for the <a href="https://github.com/sarfata/pi-blaster">pi-blaster daemon</a>.
 
-Install the pi-blaster daemon (<a href="https://github.com/sarfata/pi-blaster">instructions</a>).
+Install the pi-blaster daemon (<a href="https://github.com/sarfata/pi-blaster#how-to-build-and-install">instructions</a>).
 
 Usable pins:
 
