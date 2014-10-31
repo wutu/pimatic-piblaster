@@ -11,7 +11,8 @@ Usable pins:
           4              P1-7
           17             P1-11
           18             P1-12
-          21             P1-13
+          21             P1-13 (only for model A/B)
+          27             P1-13 (only for model B+)
           22             P1-15
           23             P1-16
           24             P1-18
@@ -38,3 +39,5 @@ Then add a device to the devices section:
   "dimlevel": 0
 }
 ```
+
+Thank you <a href="https://github.com/clebert">Clemens Akens</a> for <a href="https://github.com/clebert/r-pi-usonic">r-pi-usonic</a> and <a href="https://github.com/sweetpi">sweet pi</a> for inspiration and his work on best automatization software <a href="http://pimatic.org/">Pimatic</a>.
