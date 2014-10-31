@@ -1,6 +1,6 @@
 {
   "name": "pimatic-piblaster",
-  "description": "Module to control pi-blaster.",
+  "description": "Support for the pi-blaster daemon",
   "author_name": "Marek Kail <reg@kail.cz>",
   "author_url": "https://github.com/wutu",
   "npmUser": "wutu",
