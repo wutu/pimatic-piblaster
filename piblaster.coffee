@@ -36,7 +36,7 @@ module.exports = (env) ->
       @_setDimlevel(dimlevel)
       pilevel = (parseFloat(dimlevel) / 100)
       piblaster.setPwmAsync(@gpio, pilevel)
-      return
+      return Promise.resolve()
 
   plugin = new PiblasterPlugin
 
