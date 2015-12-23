@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "piblaster-config-schema.js",
+  "sourceRoot": "",
+  "sources": [
+    "piblaster-config-schema.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,MAAM,CAAC,OAAP,GAAiB;AAAA,EACf,KAAA,EAAO,WADQ;AAAA,EAEf,IAAA,EAAM,QAFS;AAAA,EAGf,UAAA,EAAY,EAHG;CAAjB,CAAA"
+}

@@ -11,7 +11,7 @@
     "piblaster-config-schema.coffee",
     "device-config-schema.coffee"
   ],
-  "version": "0.8.1",
+  "version": "0.8.2",
   "homepage": "http://github.com/wutu/pimatic-piblaster",
   "repository": {
     "type": "git",
@@ -41,5 +41,27 @@
     "soft PWM",
     "led pwm"
   ],
-  "license": "GPL-2.0"
+  "license": "GPL-2.0",
+  "gitHead": "336a216c93585917c2fb04ac93c2933379a51931",
+  "_id": "pimatic-piblaster@0.8.1",
+  "_shasum": "58436fe584d0d2035c91b6b811beff7da9341c33",
+  "_from": "pimatic-piblaster@*",
+  "_npmVersion": "2.1.5",
+  "_nodeVersion": "0.10.24",
+  "_npmUser": {
+    "name": "wutu",
+    "email": "reg@kail.cz"
+  },
+  "maintainers": [
+    {
+      "name": "wutu",
+      "email": "reg@kail.cz"
+    }
+  ],
+  "dist": {
+    "shasum": "58436fe584d0d2035c91b6b811beff7da9341c33",
+    "tarball": "http://registry.npmjs.org/pimatic-piblaster/-/pimatic-piblaster-0.8.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/pimatic-piblaster/-/pimatic-piblaster-0.8.1.tgz"
 }
