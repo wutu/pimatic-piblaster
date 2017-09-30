@@ -9,9 +9,10 @@
     "piblaster.coffee",
     "README.md",
     "piblaster-config-schema.coffee",
-    "device-config-schema.coffee"
+    "device-config-schema.coffee",
+    "cie1931.txt"
   ],
-  "version": "0.8.2",
+  "version": "0.9.0",
   "homepage": "http://github.com/wutu/pimatic-piblaster",
   "repository": {
     "type": "git",
@@ -19,14 +20,11 @@
   },
   "configSchema": "piblaster-config-schema.coffee",
   "dependencies": {
-    "pi-blaster.js": "~0.0.2"
-  },
-  "peerDependencies": {
-    "pimatic": "0.8.*"
+    "pi-blaster.js": ">=0.1.1"
   },
   "engines": {
-    "node": ">0.8.x",
-    "npm": ">1.1.x"
+    "node": ">= 4",
+    "npm": ">= 2"
   },
   "bugs": {
     "url": "https://github.com/wutu/pimatic-piblaster/issues"
@@ -41,27 +39,11 @@
     "soft PWM",
     "led pwm"
   ],
-  "license": "GPL-2.0",
-  "gitHead": "336a216c93585917c2fb04ac93c2933379a51931",
-  "_id": "pimatic-piblaster@0.8.1",
-  "_shasum": "58436fe584d0d2035c91b6b811beff7da9341c33",
-  "_from": "pimatic-piblaster@*",
-  "_npmVersion": "2.1.5",
-  "_nodeVersion": "0.10.24",
-  "_npmUser": {
-    "name": "wutu",
-    "email": "reg@kail.cz"
-  },
+  "license": "AGPL-3.0",
   "maintainers": [
     {
       "name": "wutu",
-      "email": "reg@kail.cz"
+      "url": "https://github.com/wutu"
     }
-  ],
-  "dist": {
-    "shasum": "58436fe584d0d2035c91b6b811beff7da9341c33",
-    "tarball": "http://registry.npmjs.org/pimatic-piblaster/-/pimatic-piblaster-0.8.1.tgz"
-  },
-  "directories": {},
-  "_resolved": "https://registry.npmjs.org/pimatic-piblaster/-/pimatic-piblaster-0.8.1.tgz"
+  ]
 }

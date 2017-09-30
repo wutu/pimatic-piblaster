@@ -1,30 +1,26 @@
 module.exports = {
   title: "pimatic-piblaster device config schemas"
-  PiblasterDimmer: {
-    title: "PiblasterDimmer config options"
+  PiblasterPWM: {
+    title: "PiblasterPWM config options"
     type: "object"
     extensions: ["xLink"]
     properties:
       gpio:
-        description: "The gpio pin"
+        description: "The GPIO number (https://github.com/sarfata/pi-blaster#how-to-use)"
         type: "number"
       mode:
-        description: "Mode (dim or skip)"
+        description: "Mode (fade or direct)"
         type: "string"
-        default: "skip"
-      correction:
-        description: "Linear or non-linear run (cie1931 or linear)"
-        type: "string"
-        default: "cie1931"
+        default: "fade"
+        enum: ["fade", "linear"]
       delay:
         description: "Delay between steps (ms)"
         type: "integer"
         default: 100
-      lastDimlevel:
-        description: ""
-        type: "number"
-        default: 0
-        options:
-          hidden: yes
+      correction:
+        description: "Linear or cie1931 (http://jared.geek.nz/2013/feb/linear-led-pwm)"
+        type: "string"
+        default: "cie1931"
+        enum: ["cie1931", "linear"]
   }
 }

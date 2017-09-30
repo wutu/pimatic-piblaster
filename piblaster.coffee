@@ -1,7 +1,7 @@
 module.exports = (env) ->
 
+  piblaster = require 'pi-blaster.js'
   Promise = env.require 'bluebird'
-  assert = env.require 'cassert'
   fs = require 'fs'
   _ = env.require 'lodash'
 
@@ -9,7 +9,7 @@ module.exports = (env) ->
 
   cie1931 = []
 
-  fs.readFile "/home/pi/pimatic-app/node_modules/pimatic-piblaster/cie1931.txt", (err, data) ->
+  fs.readFile __dirname + "/cie1931.txt", (err, data) ->
     throw err if err
     cie1931 = data.toString().split("\, ")
 
@@ -21,30 +21,24 @@ module.exports = (env) ->
 
       deviceConfigDef = require("./device-config-schema")
 
-      @framework.deviceManager.registerDeviceClass("PiblasterDimmer", {
-        configDef: deviceConfigDef.PiblasterDimmer,
-        createCallback: (config) ->
-          device = new PiblasterDimmer(config)
+      @framework.deviceManager.registerDeviceClass("PiblasterPWM", {
+        configDef: deviceConfigDef.PiblasterPWM,
+        createCallback: (@config) ->
+          device = new PiblasterPWM(@config)
           return device
       })
 
-  class PiblasterDimmer extends env.devices.DimmerActuator
+  class PiblasterPWM extends env.devices.DimmerActuator
 
     constructor: (@config, lastState) ->
-      @id = config.id
-      @name = config.name
-      @gpio = config.gpio
-      @mode = config.mode
-      @correction = config.correction
-      @delay = (config.delay / 10)
-      if config.lastDimlevel?
-        @_dimlevel = config.lastDimlevel or 0
-      @_state = (config.lasDtimlevel > 0)
-      if @_dimlevel > 0
-        if @correction is "cie1931"
-          writeCommand @gpio + "=" + (i for i, index in cie1931 when index == @_dimlevel * 10)
-        if @correction is "linear"
-          writeCommand @gpio + "=" + (@_dimlevel / 100)
+      @id = @config.id
+      @name = @config.name
+      @gpio = @config.gpio
+      @mode = @config.mode
+      @correction = @config.correction
+      @delay = (@config.delay / 10)
+      @_state = lastState?.state?.value or off
+      @_dimlevel = lastState?.dimlevel?.value or 0
       super()
 
     changeDimlevelTo: (dimlevel) ->
@@ -52,12 +46,12 @@ module.exports = (env) ->
       else
         actlevel = @_dimlevel * 10
         level = dimlevel * 10
-        if @config.mode is "skip"
+        if @config.mode is "direct"
           if @config.correction is "linear"
-            writeCommand @gpio + "=" + (dimlevel / 100)
+            piblaster.setPwm(@gpio + ", " + (dimlevel / 100))
           if @config.correction is "cie1931"
-            writeCommand @gpio + "=" + (i for i, index in cie1931 when index == level)
-        else if @config.mode is "dim"
+            piblaster.setPwm(@gpio + ", " + (i for i, index in cie1931 when index == level))
+        else if @config.mode is "fade"
           if @config.correction is "cie1931"
             if @_dimlevel < dimlevel
               slice = cie1931.slice(actlevel, level)
@@ -77,36 +71,19 @@ module.exports = (env) ->
         @_setDimlevel dimlevel
       return Promise.resolve()
 
-    _setDimlevel: (dimlevel) ->
-      super dimlevel
-      @config.lastDimlevel = dimlevel
-      plugin.framework.saveConfig()
-
-    writeCommand = (cmd) ->
-      buffer = new Buffer(cmd + "\n")
-      fd = fs.open(PI_BLASTER_PATH, "w", `undefined`, (err, fd) ->
-        if err
-          env.logger.error("Error opening file: " + err)
-        else
-          fs.write fd, buffer, 0, buffer.length, -1, (error, written, buffer) ->
-            if error
-              env.logger.error("Error occured writing to " + PI_BLASTER_PATH + ": " + error)
-            else
-              fs.close fd
-            return
-        return
-      )
-      return
-
     _pwm: (arr, gpio, delay) ->
       loop_ = (i) ->
         setTimeout (->
-          # console.log arr[i]
-          writeCommand gpio + "=" + arr[i]
+          piblaster.setPwm(gpio, arr[i])
           loop_ i + 1  if i < arr.length - 1
           return
         ), delay
       loop_ 0
+
+    destroy: () ->
+      # I'm waiting with this for version 1.2 on npmjs.com
+      # piblaster.releasePwm(@gpio)
+      super()
 
   plugin = new PiblasterPlugin
 
