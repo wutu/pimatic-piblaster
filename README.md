@@ -3,20 +3,11 @@ pimatic-piblaster
 
 Support for the <a href="https://github.com/sarfata/pi-blaster">pi-blaster daemon</a>.
 
-Install the pi-blaster daemon (<a href="https://github.com/sarfata/pi-blaster#how-to-build-and-install">instructions</a>).
+First install and run the pi-blaster daemon (<a href="https://github.com/sarfata/pi-blaster#how-to-build-and-install">instructions</a>).
 
 Usable pins:
 
-      GPIO number   Pin in P1 header
-          4              P1-7
-          17             P1-11
-          18             P1-12
-          21             P1-13 (only for model A/B)
-          27             P1-13 (only for model B+)
-          22             P1-15
-          23             P1-16
-          24             P1-18
-          25             P1-22
+[![List of pins thanks to pinout.xyz](pinout.xyz.png)](http://pinout.xyz)
 
 ### Example config
 
@@ -32,11 +23,13 @@ Then add a device to the devices section:
 
 ```json
 {
-  "id": "led-sw-pwm",
-  "name": "LED SW PWM",
-  "class": "PiblasterDimmer",
+  "id": "pi-blaster-pwm",
+  "name": "Pi blaster PWM",
+  "class": "PiblasterPWM",
   "gpio": 18,
-  "dimlevel": 0
+  "mode": "fade",
+  "delay": 100,
+  "correction": "cie1931"
 }
 ```
 
