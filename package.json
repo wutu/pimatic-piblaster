@@ -12,7 +12,7 @@
     "device-config-schema.coffee",
     "cie1931.txt"
   ],
-  "version": "0.9.0",
+  "version": "0.9.1",
   "homepage": "http://github.com/wutu/pimatic-piblaster",
   "repository": {
     "type": "git",
