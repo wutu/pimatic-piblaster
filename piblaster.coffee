@@ -42,7 +42,7 @@ module.exports = (env) ->
       super()
 
     changeDimlevelTo: (dimlevel) ->
-      if @_dimlevel is dimlevel then return 
+      if @_dimlevel is dimlevel then return
       else
         actlevel = @_dimlevel * 10
         level = dimlevel * 10
