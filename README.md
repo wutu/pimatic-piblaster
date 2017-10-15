@@ -5,9 +5,7 @@ Support for the <a href="https://github.com/sarfata/pi-blaster">pi-blaster daemo
 
 First install and run the pi-blaster daemon (<a href="https://github.com/sarfata/pi-blaster#how-to-build-and-install">instructions</a>).
 
-Usable pins:
-
-[![List of pins thanks to pinout.xyz](pinout.xyz.png)](http://pinout.xyz)
+<a href="https://github.com/sarfata/pi-blaster#how-to-use">Usable pins</a>
 
 ### Example config
 
